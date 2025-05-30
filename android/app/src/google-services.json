@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "24833729323",
+    "project_id": "zymo-app",
+    "storage_bucket": "zymo-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24833729323:android:74359d252037cc0c159b6e",
+        "android_client_info": {
+          "package_name": "com.example.zymo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24833729323-8tuj324uls7vm5l43ok8mjaj9kd0jf5d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zymo_app",
+            "certificate_hash": "eef85f736ac1267ddca1fe6a3acfd08a1de1b897"
+          }
+        },
+        {
+          "client_id": "24833729323-i0053feko5ouof5ens53mc2t19lp3p3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoMpMbFXbCWFHglRfOs8rBU54sUBect3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24833729323-i0053feko5ouof5ens53mc2t19lp3p3s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "24833729323-v79obujufh4hni3md256iejj9iaa6739.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.zymoApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
