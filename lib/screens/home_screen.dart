@@ -21,14 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime _startDate = DateTime.now();
   DateTime _endDate = DateTime.now().add(const Duration(days: 2));
 
-  // Sample images for the image slider
-  // final List<String> _images = [
-  //   'https://via.placeholder.com/400x200/FF5722/FFFFFF?text=Image+1',
-  //   'https://via.placeholder.com/400x200/2196F3/FFFFFF?text=Image+2',
-  //   'https://via.placeholder.com/400x200/4CAF50/FFFFFF?text=Image+3',
-  //   'https://via.placeholder.com/400x200/9C27B0/FFFFFF?text=Image+4',
-  // ];
-
   final List<String> _images = [
     'assets/images/image5.jpeg',
     'assets/images/image6.jpeg',
@@ -56,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Start auto-scrolling for logos and brands
     _startLogoTimer();
     _startBrandTimer();
   }
@@ -293,8 +284,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(height: 20),
-
-                      // Location text field with GPS icon
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 12),
@@ -328,8 +317,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(height: 16),
-
-                      // Date range text field with calendar icon
                       GestureDetector(
                         onTap: () => _selectDateRange(context),
                         child: Container(
@@ -399,8 +386,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(height: 16),
-
-                      // Trip Duration text field
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 16),
@@ -500,7 +485,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    // Brand Images Carousel
                     SizedBox(
                       height: 80,
                       child: PageView.builder(
@@ -547,7 +531,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Column(
                   children: [
-                    // Car item 1
                     Container(
                       margin: const EdgeInsets.only(bottom: 16),
                       padding: const EdgeInsets.all(12),
@@ -612,8 +595,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-
-                    // Car item 2
                     Container(
                       margin: const EdgeInsets.only(bottom: 16),
                       padding: const EdgeInsets.all(12),
@@ -678,8 +659,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-
-                    // Car item 3
                     Container(
                       margin: const EdgeInsets.only(bottom: 16),
                       padding: const EdgeInsets.all(12),
@@ -744,8 +723,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-
-                    // Car item 4
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
@@ -934,7 +911,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 12),
-              // Logo Carousel
               SizedBox(
                 height: 100,
                 child: PageView.builder(

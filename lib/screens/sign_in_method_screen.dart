@@ -7,7 +7,7 @@ import 'payment_screen.dart';
 class SignInMethodScreen extends StatefulWidget {
   final double amount;
   final int requiredAmount;
-  
+
   const SignInMethodScreen({
     Key? key,
     required this.amount,
@@ -31,13 +31,14 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
 
     try {
       print('Initiating Google Sign In...');
-      final UserCredential? userCredential = await _authService.signInWithGoogle();
-      
+      final UserCredential? userCredential =
+          await _authService.signInWithGoogle();
+
       if (!mounted) return;
 
       if (userCredential?.user != null) {
         print('Successfully signed in: ${userCredential?.user?.email}');
-        // Show success message before navigation
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Successfully signed in!'),
@@ -46,10 +47,9 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
           ),
         );
 
-        // Navigate after a brief delay to show the success message
         await Future.delayed(const Duration(milliseconds: 1000));
         if (!mounted) return;
-        
+
         Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
             builder: (context) => PaymentScreen(amount: widget.amount),
@@ -58,7 +58,7 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
         );
       } else {
         if (!mounted) return;
-        
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Sign in was cancelled'),
@@ -147,10 +147,7 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
               ),
               textAlign: TextAlign.center,
             ),
-
             const SizedBox(height: 40),
-
-            // Sign in with Email button
             _buildSignInButton(
               icon: Icons.email_outlined,
               text: 'Sign in with Email',
@@ -167,10 +164,7 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
               iconColor: Colors.grey[600]!,
               hasBorder: true,
             ),
-
             const SizedBox(height: 16),
-
-            // Sign in with Google button
             _buildSignInButton(
               icon: Icons.g_mobiledata,
               text: _isLoading ? 'Signing in...' : 'Sign in with Google',
@@ -181,15 +175,11 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
               hasBorder: true,
               isLoading: _isLoading,
             ),
-
             const SizedBox(height: 16),
-
-            // Sign in with Apple button
             _buildSignInButton(
               icon: Icons.apple,
               text: 'Sign in with Apple',
               onTap: () {
-                // Handle Apple sign in
                 print('Apple sign in tapped');
               },
               backgroundColor: Colors.white,
@@ -197,9 +187,7 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
               iconColor: Colors.grey[600]!,
               hasBorder: true,
             ),
-
             const Spacer(),
-
             Padding(
               padding: const EdgeInsets.only(bottom: 40),
               child: Text(
@@ -273,7 +261,7 @@ class _SignInMethodScreenState extends State<SignInMethodScreen> {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(width: 40), // Balance the icon space
+            const SizedBox(width: 40),
           ],
         ),
       ),

@@ -23,18 +23,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
-    // Payment Success
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Payment Successful: ${response.paymentId}'),
         backgroundColor: Color(0xFFFFFA8D),
       ),
     );
-    // Navigate to success screen or home screen
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
-    // Payment Error
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Payment Failed: ${response.message}'),
@@ -172,7 +169,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
             const Spacer(),
 
-            // Pay Now Button
             SizedBox(
               width: double.infinity,
               height: 56,

@@ -7,21 +7,16 @@ class AuthService {
     scopes: ['email', 'profile'],
   );
 
-  // Get current user
   User? get currentUser => _auth.currentUser;
 
-  // Stream of auth state changes
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
-  // Sign in with Google
   Future<UserCredential?> signInWithGoogle() async {
     try {
       print('Starting Google Sign In flow...');
 
-      // Sign out first to ensure clean state
       await _googleSignIn.signOut();
 
-      // Trigger the authentication flow
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
       if (googleUser == null) {
@@ -31,7 +26,6 @@ class AuthService {
 
       print('Google Sign In successful for user: ${googleUser.email}');
 
-      // Obtain the auth details from the request
       final GoogleSignInAuthentication googleAuth =
           await googleUser.authentication;
 
@@ -43,7 +37,6 @@ class AuthService {
         throw Exception('Failed to obtain Google auth tokens');
       }
 
-      // Create a new credential
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
@@ -51,7 +44,6 @@ class AuthService {
 
       print('Signing in to Firebase...');
 
-      // Sign in to Firebase with error handling for the specific issue
       try {
         final userCredential = await _auth.signInWithCredential(credential);
 
@@ -65,7 +57,7 @@ class AuthService {
         }
       } on FirebaseAuthException catch (e) {
         print('FirebaseAuthException: ${e.code} - ${e.message}');
-        // Handle specific Firebase Auth errors
+
         switch (e.code) {
           case 'account-exists-with-different-credential':
             throw Exception('Account exists with different credentials');
@@ -80,7 +72,7 @@ class AuthService {
         }
       } catch (e) {
         print('Firebase signInWithCredential error: $e');
-        // This catches the PigeonUserDetails error specifically
+
         if (e.toString().contains('PigeonUserDetails')) {
           throw Exception(
               'Authentication plugin compatibility issue. Please update your app.');
@@ -91,7 +83,6 @@ class AuthService {
       print('Error in signInWithGoogle: $e');
       print('Stack trace: $stackTrace');
 
-      // Clean up on error
       try {
         await _googleSignIn.signOut();
       } catch (cleanupError) {
@@ -102,7 +93,6 @@ class AuthService {
     }
   }
 
-  // Sign out
   Future<void> signOut() async {
     try {
       await Future.wait([

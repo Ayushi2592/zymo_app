@@ -81,7 +81,6 @@ class _AutoScrollCarouselState extends State<AutoScrollCarousel> {
             },
           ),
         ),
-        // Page indicators
         Positioned(
           bottom: 10,
           left: 0,
@@ -107,4 +106,4 @@ class _AutoScrollCarouselState extends State<AutoScrollCarousel> {
       ],
     );
   }
-} 
+}

@@ -33,12 +33,11 @@ class _LoginScreenState extends State<LoginScreen> {
         _errorMessage = null;
       });
       try {
-        // Get the current user if any
         User? currentUser = FirebaseAuth.instance.currentUser;
-        
+
         if (currentUser == null) {
-          // Try to sign in
-          final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          final credential =
+              await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: _emailController.text.trim(),
             password: _passwordController.text.trim(),
           );
@@ -54,7 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
             }
           }
         } else {
-          // User is already signed in
           if (mounted) {
             Navigator.pushReplacement(
               context,
@@ -140,10 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.grey[600],
                 ),
               ),
-
               const SizedBox(height: 40),
-
-              // Email Field
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -177,10 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
-
               const SizedBox(height: 20),
-
-              // Password Field
               TextFormField(
                 controller: _passwordController,
                 obscureText: _obscurePassword,
@@ -227,16 +219,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
-
               const SizedBox(height: 12),
-
-              // Forgot Password
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {
-                    // Handle forgot password
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Forgot Password?',
                     style: TextStyle(
@@ -246,10 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
               const SizedBox(height: 24),
-
-              // Sign In Button
               SizedBox(
                 width: double.infinity,
                 height: 56,
@@ -271,10 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
               const SizedBox(height: 24),
-
-              // Don't have an account
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -303,7 +284,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-
               if (_isLoading) ...[
                 const Center(child: CircularProgressIndicator()),
                 const SizedBox(height: 16),

@@ -16,7 +16,6 @@ class _BookingScreenState extends State<BookingScreen> {
   @override
   void initState() {
     super.initState();
-    // Check if user is logged in
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final user = FirebaseAuth.instance.currentUser;
       if (user == null) {
@@ -53,7 +52,6 @@ class _BookingScreenState extends State<BookingScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image Carousel
             Container(
               height: 250,
               child: Stack(
@@ -79,7 +77,6 @@ class _BookingScreenState extends State<BookingScreen> {
                       );
                     },
                   ),
-                  // Left Arrow
                   Positioned(
                     left: 8,
                     top: 0,
@@ -109,7 +106,6 @@ class _BookingScreenState extends State<BookingScreen> {
                       ),
                     ),
                   ),
-                  // Right Arrow
                   Positioned(
                     right: 8,
                     top: 0,
@@ -142,10 +138,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 16),
-
-            // Car Name and Rating
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Row(
@@ -184,10 +177,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 12),
-
-            // Car Details Row
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Row(
@@ -212,10 +202,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 8),
-
-            // Fulfilled by Zoomcar
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Row(
@@ -233,19 +220,13 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 16),
-
-            // Divider
             Container(
               height: 1,
               color: Colors.black,
               margin: EdgeInsets.symmetric(horizontal: 16),
             ),
-
             SizedBox(height: 16),
-
-            // Booking Details
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -270,10 +251,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 20),
-
-            // Details Container
             Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 16),
@@ -302,10 +280,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 16),
-
-            // Cancellation Policy Container
             Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 16),
@@ -325,10 +300,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 16),
-
-            // Location Container
             Container(
               width: double.infinity,
               padding: EdgeInsets.all(16),
@@ -363,10 +335,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 16),
-
-            // Pricing Container
             Container(
               width: double.infinity,
               margin: const EdgeInsets.symmetric(vertical: 12),
@@ -402,7 +371,6 @@ class _BookingScreenState extends State<BookingScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 20),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -443,7 +411,6 @@ class _BookingScreenState extends State<BookingScreen> {
                 ),
               ),
             ),
-
             SizedBox(height: 20),
           ],
         ),

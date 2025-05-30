@@ -124,10 +124,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   List<Car> get filteredCars {
     return cars.where((car) {
-      bool matchesTransmission = selectedTransmission == 'All' || 
-                               car.transmission == selectedTransmission;
-      bool matchesSeats = selectedSeats == 'All' || 
-                         car.seats == selectedSeats;
+      bool matchesTransmission = selectedTransmission == 'All' ||
+          car.transmission == selectedTransmission;
+      bool matchesSeats = selectedSeats == 'All' || car.seats == selectedSeats;
       return matchesTransmission && matchesSeats;
     }).toList();
   }
@@ -243,7 +242,6 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
-                      // Here you can implement the filter logic
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFFFA8D),
@@ -358,7 +356,6 @@ class _SearchScreenState extends State<SearchScreen> {
               ],
             ),
           ),
-          // Updated car listings
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.all(16),
@@ -384,7 +381,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     child: Column(
                       children: [
-                        // Car image
                         Container(
                           height: 150,
                           width: double.infinity,
@@ -401,11 +397,9 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                         ),
                         const SizedBox(height: 12),
-                        // Car details
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Left side - Car name and seats info
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -429,7 +423,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                 ],
                               ),
                             ),
-                            // Right side - Price and Book button
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
@@ -498,7 +491,6 @@ class _SearchScreenState extends State<SearchScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Header row with close button and "Choose from"
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -576,7 +568,6 @@ class _SearchScreenState extends State<SearchScreen> {
                             ],
                           ),
                           const SizedBox(height: 16),
-                          // Features list
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -624,7 +615,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           const SizedBox(height: 20),
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.pop(context); // Close the popup
+                              Navigator.pop(context);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -661,7 +652,6 @@ class _SearchScreenState extends State<SearchScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                // Zero Security Deposit text field
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(12),
